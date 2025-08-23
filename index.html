@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana's portfolio</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./main.js"></script>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="content">
+    <div class="navbar">
+        <ul>
+            <li><a href="">./home</a></li>
+            <li><a href="">./about_me</a></li>
+            <li><a href="">./projects</a></li>
+            <li><a href="">./contact</a></li>
+        </ul>
+    </div>
+    <div class="hero-text">this is where the text will be</div>
+    <div class="command-line-box">
+        <div class="cmdline-nav">
+            user@ana's_portfolio:~
+        </div>
+        <div class="cmdline-input">
+            user@ana's_portfolio:~$<input type="text" id="command">
+        <div id="cmd-response"><div class="output-text-dummy">Type something here, just near the "$"...</div></div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    // make canvas full screen
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const binary = "01";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+
+    // array of y positions for each column
+    const drops = [];
+    for (let x = 0; x < columns; x++) {
+      drops[x] = Math.random() * canvas.height;
+    }
+
+    function draw() {
+      // black background with opacity for trail effect
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#004551"; // neon green
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = binary.charAt(Math.floor(Math.random() * binary.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // reset drop to top randomly
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 100);
+
+    // handle resize
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+</html>
