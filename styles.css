@@ -39,6 +39,10 @@ a:hover {
     background-color: white;
 }
 
+div {
+    font-size: large;
+}
+
 /* animated background */
     body {
       margin: 0;
@@ -115,6 +119,18 @@ a:hover {
     border: none;
     color: #fff;
     outline: none;
+}
+
+.command-style {
+    color: magenta;
+}
+
+.emphasis {
+    color: #39FF14;
+}
+
+b {
+    color: #cfb815;
 }
 
 /* left box */
