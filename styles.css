@@ -119,6 +119,7 @@ div {
     border: none;
     color: #fff;
     outline: none;
+    font-size: large;
 }
 
 .command-style {
@@ -138,4 +139,54 @@ b {
     height: 70vh;
     width: 60vh;
     border: 2px solid #00adcc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box1left {
+    width: 100%;
+    border: 2px solid #00adcc;
+}
+
+.carrousel_divider {
+    height: 60%;
+    width: 100%;
+    background-color: #39FF14;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrousel_slider {
+    height: 100%;
+    width: 10%;
+}
+
+.carrousel {
+    height: 90%;
+    width: 90%;
+    background-color: #cfb815;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media_positioning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border-radius: 15px;
+    background-color: #bbb;
+}
+
+.dot:hover {
+    background-color: black;
 }

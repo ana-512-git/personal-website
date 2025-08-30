@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('command');
     const output = document.getElementById('cmd-response');
+    const output2 = document.getElementById('hero-text');
 
     // text submission handler
     function handleSubmit() {
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             //clear existing info
             output.innerHTML = '';
+            output2.innerHTML = '';
 
             //write what i want for this command
             processCommand(inputText);
@@ -21,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function processCommand(cmd) {
         const newOutput = document.createElement('div');
+        const newOutput2 = document.createElement('div');
         newOutput.className = 'output-text';
+        newOutput2.className = 'hero-text';
 
         switch(cmd.toLowerCase()) {
             // tells user about the commands they have
@@ -38,9 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 If you're a dev, go ahead and have some fun trying to find the easter eggs, they're all commands you've probably worked with a million times. If you're
                 an average Joe, I know this may seem like a lot, but don't worry, you can still have your fun here. If you're not comfortable using this box you've entered the message in, that's fine, go
                 ahead and explore everything as it is, there's a button for just about anything.`;
-                break;
-            // lists all projects
-            case 'projects':
                 break;
             // about me page
             case 'whoami':
@@ -62,6 +63,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 as my favourite, it's impossible, but I will happily recommend some titles if asked) and trying the most random recipes the internet puts in front 
                 of my eyes (they turn out edible 90% of the time).`;
                 break;
+            case 'projects':
+                newOutput.innerHTML = `
+                ./projects/<br>
+                |----scss_plane/<br>
+                |----hackitall2025/<br>
+                |----Evrika!/<br>
+                |----sthelse/<br>
+                `;
+                break;
+            case 'scss_plane':
+                newOutput.innerHTML = 'testing this one';
+                newOutput2.innerHTML = `<div class="box1left">
+                </div>
+                <div class="carrousel_divider">
+                    <div class="carrousel">
+                        <button class="carrousel_slider">go left</button>
+                            <video height="100%" autoplay muted loop>
+                            <source src="./pictures/scss_plane/plane_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                            </video>
+                        <!-- <img src="./pictures/scss_plane/soldering_plane.jpeg" style="height:100%;"> -->
+                        <button class="carrousel_slider">go right</button>
+                    </div>
+                    <div class="media_positioning">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>`;
+                break;
             //easter egg #1
             case 'sudo':
                 newOutput.innerHTML = 'well well...look who we have here';
@@ -75,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         output.appendChild(newOutput);
+        output2.appendChild(newOutput2);
     }
 
     input.addEventListener('keypress', function(e) {
